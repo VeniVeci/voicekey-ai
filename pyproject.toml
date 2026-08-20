@@ -17,7 +17,7 @@ dependencies = [
 
 [project.optional-dependencies]
 local = ["faster-whisper>=1.1,<2"]
-dev = ["pytest>=8,<9", "pyinstaller>=6,<7"]
+dev = ["pytest>=8,<10", "pyinstaller>=6,<7"]
 
 [project.scripts]
 voicekey-ai = "voicekey.app:main"
