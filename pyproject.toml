@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voicekey-ai"
+version = "0.3.0"
+description = "Windows voice typing with ASR and optional LLM polishing"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "VoiceKey AI contributors" }]
+dependencies = [
+  "sounddevice>=0.5.1,<0.6",
+  "tomli>=2,<3; python_version < '3.11'",
+]
+
+[project.optional-dependencies]
+local = ["faster-whisper>=1.1,<2"]
+dev = ["pytest>=8,<9", "pyinstaller>=6,<7"]
+
+[project.scripts]
+voicekey-ai = "voicekey.app:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
